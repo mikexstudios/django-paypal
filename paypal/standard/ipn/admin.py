@@ -6,7 +6,7 @@ from paypal.standard.ipn.models import PayPalIPN
 
 class PayPalIPNAdmin(admin.ModelAdmin):
     date_hierarchy = 'payment_date'
-    fieldsets = (
+    fieldsets = [ #list intead of tuple so we can override on the fly.
         (None, {
             "fields": [
                 "flag", "txn_id", "txn_type", "payment_status", "payment_date",
@@ -58,7 +58,7 @@ class PayPalIPNAdmin(admin.ModelAdmin):
                 "flag_info"
             ]
         }),
-    )
+    ]
     list_display = [
         "__unicode__", "flag", "flag_info", "invoice", "custom", 
         "payment_status", "created_at"

@@ -40,8 +40,17 @@ class PayPalIPNAdmin(admin.ModelAdmin):
                 "receiver_email", "receiver_id", "custom", "invoice", "memo"
             ]
         }),
+        ("Subscription", {
+            "description": "Information about Subscription payments.",
+            "classes": ("collapse",),
+            "fields": [
+                'subscr_id', 'subscr_date', 'subscr_effective', 'mc_amount1',
+                'mc_amount2', 'mc_amount3', 'period1', 'period2', 'period3', 
+                'recurring', 'recur_times' 
+            ]
+        }),
         ("Recurring", {
-            "description": "Information about recurring Payments.",
+            "description": "Information about Recurring payments.",
             "classes": ("collapse",),
             "fields": [
                 "profile_status", "initial_payment_amount", "amount_per_cycle", 
